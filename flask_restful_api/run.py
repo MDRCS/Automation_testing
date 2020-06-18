@@ -1,5 +1,5 @@
-from app import app
-from db import db
+from flask_restful_api.app import app
+from flask_restful_api.db import db
 
 db.init_app(app)
 
