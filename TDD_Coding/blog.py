@@ -8,6 +8,9 @@ class Blog:
         self.author = author
         self.posts = []
 
+    def __repr__(self):
+        return 'blog {} by {}'.format(self.title, self.author)
+
     def create_post(self, title, content):
         self.posts.append(Post(title, content))
 
