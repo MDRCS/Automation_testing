@@ -17,7 +17,7 @@ class AppTest(TestCase):
             mocked_input.assert_called_with(app.MENU_PROMPT)
 
     def test_menu_call_print_blogs(self):
-        with patch('TDD_Coding.app.print_blogs') as mocked_print_blogs:
+        with patch('tdd-coding.app.print_blogs') as mocked_print_blogs:
             with patch('builtins.input', return_value='q'):
                 app.menu()
                 mocked_print_blogs.assert_called_with()
@@ -39,14 +39,14 @@ class AppTest(TestCase):
     def test_read_bog(self):
         app.blogs['Test'].create_post('test', 'test content')
         with patch('builtins.input', return_value='Test'):
-            with patch('TDD_Coding.app.print_posts') as mocked_print:
+            with patch('tdd-coding.app.print_posts') as mocked_print:
                 app.ask_read_blog()
 
                 mocked_print.assert_called_with(app.blogs['Test'])
 
     def test_print_posts(self):
         app.blogs['Test'].create_post('test', 'test content')
-        with patch('TDD_Coding.app.print_post') as mocked_print_post:
+        with patch('tdd-coding.app.print_post') as mocked_print_post:
             app.print_posts(app.blogs['Test'])
             mocked_print_post.assert_called_with(app.blogs['Test'].posts[0])
 
