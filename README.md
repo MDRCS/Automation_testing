@@ -47,3 +47,6 @@
 
     $ Apply and run
 
+    %% Create CI pipeline with Travis CI and Github :
+
+    $ git checkout -b CI
