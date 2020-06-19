@@ -1,4 +1,4 @@
-from db import db
+from flask_restful_api.db import db
 
 
 class UserModel(db.Model):
