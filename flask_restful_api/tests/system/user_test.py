@@ -14,9 +14,6 @@ class UserTest(BaseTest):
                 self.assertDictEqual(d1={'message': 'User created successfully.'},
                                      d2=json.loads(r.data))
 
-
-
-
     def test_register_and_login(self):
         with self.app() as c:
             with self.app_context():
@@ -32,17 +29,7 @@ class UserTest(BaseTest):
         with self.app() as c:
             with self.app_context():
                 c.post('/register', data={'username': 'test', 'password': '1234'})
-                r = c.post('/register', data={'username': 'test', 'password': '1234'})
-
-                self.assertEqual(r.status_code, 400)
+                res = c.post('/register', data={'username': 'test', 'password': '1234'})
+                self.assertEqual(res.status_code, 400)
                 self.assertDictEqual(d1={'message': 'A user with that username already exists'},
-                                     d2=json.loads(r.data))
-
-
-"""
- with self.app() as c:
-            with self.app_context():
-                r = c.post('/register', data={'username': 'test', 'password': '1234'})
-
-
-"""
+                                     d2=json.loads(res.data))
