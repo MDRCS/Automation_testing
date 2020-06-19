@@ -30,3 +30,5 @@ class ItemTest(BaseTest):
             item.save_to_db()
 
             self.assertEqual(item.store.name, 'test_store')
+
+
